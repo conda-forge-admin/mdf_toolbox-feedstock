@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: mdf_toolbox
-  version: "0.7.1"
+  version: 0.7.1
 
 package:
   name: ${{ name|lower }}
@@ -15,11 +15,11 @@ source:
 build:
   number: 2
   noarch: python
-  script: ${{ PYTHON }} -m pip install . -vv
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
-    - python ${{ python_min }}
+    - python ${{ python_min }}.*
     - pip
     - setuptools
   run:
